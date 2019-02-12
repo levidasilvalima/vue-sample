@@ -14,6 +14,14 @@ const router = new Router({
             component: () => import('./views/Home.vue'),
         },
         {
+            path: '/repor',
+            name: 'hoRepositoriosme',
+            component: () => import('./views/Repositorios.vue'),
+            meta: {
+                authRequired: true
+            }
+        },
+        {
             path: '/sign-in',
             name: 'login',
             component: () => import('./views/Login.vue')

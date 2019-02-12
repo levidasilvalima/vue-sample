@@ -60,13 +60,13 @@ export default {
             items: [
                 {
                     icon: 'bubble_chart',
-                    title: 'Menu 1',
-                    // to: ''
+                    title: 'Home',
+                    to: '/'
                 },
                 {
                     icon: 'bubble_chart',
-                    title: 'Menu 2',
-                    // to: ''
+                    title: 'Repositórios',
+                    to: '/repor'
                 },
                 {
                     icon: 'bubble_chart',
