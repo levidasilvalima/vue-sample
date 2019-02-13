@@ -1,6 +1,7 @@
 <template>
-    <v-container id="repos" fluid grid-list-xl>
       <!-- <p>{{ repos }}</p>   -->
+    <v-container fluid grid-list-xl>
+
       <v-layout column>
         <v-flex>
             <v-layout>
@@ -12,7 +13,7 @@
                                 hide-actions
                                 class="elevation-1">
 
-                    <template slot="items" scope="props">
+                    <template slot="items" slot-scope="props">
                       <tr>
                         <td>  
                           <v-list-tile-avatar> 
@@ -37,8 +38,8 @@
 <script>
 
 export default {
-    name: 'menu 1',
-    el: "#repos",
+    name: 'repos',
+    
     data () {
         return {
             mainHeaders: [
@@ -59,7 +60,6 @@ export default {
               { name: 'Vue 9', star: '23',forks:'2', avatar: 'https://vuejs.org/images/logo.png' },
               { name: 'Vue  10', star: '28', forks:'2',avatar: 'https://vuejs.org/images/logo.png' }
             ],
-   //         repos: null,
         }
     },
     computed: {
@@ -67,8 +67,8 @@ export default {
             return this.$store.getters.isAuthenticated;
         }
     },
-    mounted() {
-        this.$store.getters.getRepos.then(response => (this.repos = response.data));
-    }
+    // mounted() {
+    //     this.$store.getters.getRepos.then(response => (this.repos = response.data));
+    // }
 };
 </script>
