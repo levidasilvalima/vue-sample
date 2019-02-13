@@ -24,6 +24,11 @@ const router = new Router({
             component: () => import('./views/Bitcoin.vue')
         },        
         {
+            path: '/repos',
+            name: 'Repositorios',
+            component: () => import('./views/Repositories.vue')
+        },        
+        {
             path: '/sign-in',
             name: 'login',
             component: () => import('./views/Login.vue')

@@ -60,18 +60,18 @@ export default {
             items: [
                 {
                     icon: 'bubble_chart',
-                    title: 'Menu 1',
+                    title: 'Bem Vindo',
                     to: '/menu1'
                 },
                 {
                     icon: 'bubble_chart',
-                    title: 'Menu 2',
+                    title: 'Bitcoin',
                     to: '/menu2'
                 },
                 {
                     icon: 'bubble_chart',
-                    title: 'Menu 3',
-                    // to: '/'
+                    title: 'Repositórios',
+                    to: '/repos'
                 }
             ],
             miniVariant: true,

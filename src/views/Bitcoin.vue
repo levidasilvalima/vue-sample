@@ -2,7 +2,8 @@
     <v-container id="bitcoin" fluid fill-height  class="teal darken-1 darken-2 home-hero" style="max-height: 100vh;">
         <v-layout v-if="isAuthenticated" justify-center align-center column pa-5>
             <div class="display-4 font-weight-black white--text text-xs-center">BITCOIN TODAY</div>
-            <div v-for="(currency, i) in info" :key=i class="display-1 font-weight-bold white--text text-xs-center">
+            <p> {{ info }} </p>
+            <div v-for="(currency, i) in info" v-bind:key=i class="display-1 font-weight-bold white--text text-xs-center">
                 
                 {{ currency.description }} : <span v-html="currency.symbol"></span> {{ currency.rate_float | currencydecimal }}
 
@@ -21,7 +22,7 @@ export default {
     el: "#bitcoin",
     data () {
         return {
-            info: 'levi'
+            info: null
         }
     },
     components: {

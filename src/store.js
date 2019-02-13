@@ -10,6 +10,17 @@ Vue.use(Vuex, axios);
 
 const bitcoinApi = 'https://api.coindesk.com/v1/bpi/currentprice.json';
 
+const bitcoinClient = axios.create({
+    baseURL: bitcoinApi
+})
+
+const githubApi = 'https://api.github.com';
+
+const githubClient = axios.create({
+    baseURL: githubApi
+})
+
+
 const vuexLocal = new VuexPersistence();
 
 export default new Vuex.Store({
@@ -40,7 +51,10 @@ export default new Vuex.Store({
             return state.isAuthenticated;
         },
         getBitcoin() {
-            return axios.get(bitcoinApi);
+            return bitcoinClient.get();
+        },
+        getRepos() {
+            return githubClient.get('users/levidasilvalima/repos');
         }
     }
 });
