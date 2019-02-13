@@ -1,14 +1,14 @@
 <template>
-      <!-- <p>{{ repos }}</p>   -->
-    <v-container fluid grid-list-xl>
 
-      <v-layout column>
+    <v-container  fluid grid-list-xl>
+     <!-- <p> {{ repos }} </p>  -->
+     <v-layout column>
         <v-flex>
             <v-layout>
                 <v-flex d-flex xs12 sm12 md12>
               
                   <v-data-table :headers="mainHeaders"
-                                :items="mainItems"
+                                :items="repos"
                                 item-key="name"
                                 hide-actions
                                 class="elevation-1">
@@ -17,12 +17,13 @@
                       <tr>
                         <td>  
                           <v-list-tile-avatar> 
-                            <img :src="props.item.avatar"> 
+                            <img :src="props.item.owner.avatar_url"> 
+                            <!-- <img v-bind:src= "props.item.owner.avatar_url">  -->
                           </v-list-tile-avatar>
                         </td>
-                        <td class="text-xs">{{ props.item.name }}</td>
-                        <td class="text-xs">{{ props.item.star }}</td>
-                        <td class="text-xs">{{ props.item.forks }}</td>
+                        <td class="text-xs">{{ props.item.full_name }}</td>
+                        <td class="text-xs">{{ props.item.stargazers_count }}</td>
+                        <td class="text-xs">{{ props.item.forks_count }}</td>
                       </tr>
                     </template>
                
@@ -38,8 +39,8 @@
 <script>
 
 export default {
-    name: 'repos',
-    
+    name: 'repositorios',
+    table: true,
     data () {
         return {
             mainHeaders: [
@@ -60,6 +61,7 @@ export default {
               { name: 'Vue 9', star: '23',forks:'2', avatar: 'https://vuejs.org/images/logo.png' },
               { name: 'Vue  10', star: '28', forks:'2',avatar: 'https://vuejs.org/images/logo.png' }
             ],
+            repos: []
         }
     },
     computed: {
@@ -67,8 +69,8 @@ export default {
             return this.$store.getters.isAuthenticated;
         }
     },
-    // mounted() {
-    //     this.$store.getters.getRepos.then(response => (this.repos = response.data));
-    // }
+    mounted() {
+        this.$store.getters.getRepos.then(response => { this.repos = response.data});
+    }
 };
 </script>
