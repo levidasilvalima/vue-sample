@@ -60,8 +60,8 @@ export default {
             items: [
                 {
                     icon: 'bubble_chart',
-                    title: 'Home',
-                    to: '/'
+                    title: 'Menu 1',
+                    to: '/menu1'
                 },
                 {
                     icon: 'bubble_chart',
@@ -71,7 +71,7 @@ export default {
                 {
                     icon: 'bubble_chart',
                     title: 'Menu 3',
-                    // to: ''
+                    // to: '/'
                 }
             ],
             miniVariant: true,

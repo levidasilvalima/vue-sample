@@ -1,11 +1,12 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import axios from 'axios';
 import router from '@/router';
 
-import VuexPersistence from 'vuex-persist'
+import VuexPersistence from 'vuex-persist';
 
 Vue.use(Vuex);
+
+const vuexLocal = new VuexPersistence();
 
 export default new Vuex.Store({
     state: {
@@ -29,6 +30,7 @@ export default new Vuex.Store({
             router.push('/');
         },
     },
+    plugins: [vuexLocal.plugin],
     getters: {
         isAuthenticated(state) {
             return state.isAuthenticated;
