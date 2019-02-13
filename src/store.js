@@ -9,17 +9,12 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        isAuthenticated: false,
-        repositories: []
+        isAuthenticated: false
     },
-    plugins: [new VuexPersistence().plugin],
     mutations: {
         setIsAuthenticated(state, payload) {
             state.isAuthenticated = payload;
         },
-        setRepositories(state, payload){
-            state.repositories = payload;
-        }
     },
     actions: {
         userLogin({ commit }, { email, password }) {
@@ -33,16 +28,6 @@ export default new Vuex.Store({
             commit('setIsAuthenticated', false);
             router.push('/');
         },
-        getRespositories({ commit }){
-            const baseURI = 'https://api.github.com/search/repositories?q=javascript+language:javascript&sort=stars&order=desc'
-            axios.get(baseURI)
-                .then(response => {
-                    commit('setRepositories', response.data)
-                })
-                .catch(() => {
-                    commit('setRepositories', []);
-                })
-        }
     },
     getters: {
         isAuthenticated(state) {
