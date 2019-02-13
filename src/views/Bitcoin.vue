@@ -1,8 +1,7 @@
 <template>
-    <v-container id="bitcoin" fluid fill-height  class="teal darken-1 darken-2 home-hero" style="max-height: 100vh;">
+    <v-container fluid fill-height  class="teal darken-1 darken-2 home-hero" style="max-height: 100vh;">
         <v-layout v-if="isAuthenticated" justify-center align-center column pa-5>
             <div class="display-4 font-weight-black white--text text-xs-center">BITCOIN TODAY</div>
-            <p> {{ info }} </p>
             <div v-for="(currency, i) in info" v-bind:key=i class="display-1 font-weight-bold white--text text-xs-center">
                 
                 {{ currency.description }} : <span v-html="currency.symbol"></span> {{ currency.rate_float | currencydecimal }}
@@ -18,8 +17,7 @@
 import FailMessage from '@/components/FailMessage';
 
 export default {
-    name: 'menu 2',
-    el: "#bitcoin",
+    name: 'menu2',
     data () {
         return {
             info: null
@@ -39,7 +37,7 @@ export default {
         }
     },
     mounted() {
-        this.$store.getters.getBitcoin.then(response => (this.info = response.data.bpi))
+        this.$store.getters.getBitcoin.then(response => {this.info = response.data.bpi})
     }
 
 };
