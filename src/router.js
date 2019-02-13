@@ -19,6 +19,11 @@ const router = new Router({
             component: () => import('./views/Welcome.vue')
         },
         {
+            path: '/menu2',
+            name: 'menu2',
+            component: () => import('./views/Bitcoin.vue')
+        },        
+        {
             path: '/sign-in',
             name: 'login',
             component: () => import('./views/Login.vue')

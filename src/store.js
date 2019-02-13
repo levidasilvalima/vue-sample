@@ -4,7 +4,11 @@ import router from '@/router';
 
 import VuexPersistence from 'vuex-persist';
 
-Vue.use(Vuex);
+import axios from 'axios'
+
+Vue.use(Vuex, axios);
+
+const bitcoinApi = 'https://api.coindesk.com/v1/bpi/currentprice.json';
 
 const vuexLocal = new VuexPersistence();
 
@@ -34,6 +38,9 @@ export default new Vuex.Store({
     getters: {
         isAuthenticated(state) {
             return state.isAuthenticated;
+        },
+        getBitcoin() {
+            return axios.get(bitcoinApi);
         }
     }
 });

@@ -65,8 +65,8 @@ export default {
                 },
                 {
                     icon: 'bubble_chart',
-                    title: 'Repositórios',
-                    to: '/repor'
+                    title: 'Menu 2',
+                    to: '/menu2'
                 },
                 {
                     icon: 'bubble_chart',

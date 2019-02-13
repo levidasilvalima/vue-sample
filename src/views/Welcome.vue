@@ -4,6 +4,7 @@
             <div class="display-4 font-weight-black white--text text-xs-center">WELCOME TO MENU 1</div>
             <div class="display-3 font-weight-black white--text text-xs-center mb-3">This is an presentation of the menu 1</div>
             <div class="display-1 font-weight-bold white--text text-xs-center">Everything in life we should to do.</div>
+            <div class="display-1 font-weight-bold white--text text-xs-center">{{ info }}</div>
         </v-layout>
         <fail-message v-else/>
     </v-container>
@@ -23,6 +24,5 @@ export default {
             return this.$store.getters.isAuthenticated;
         }
     },
-
 };
 </script>
