@@ -17,7 +17,11 @@ const bitcoinClient = axios.create({
 const githubApi = 'https://api.github.com';
 
 const githubClient = axios.create({
-    baseURL: githubApi
+    baseURL: githubApi,
+    auth: {
+        username: 'levidasilvalima',
+        password: '9c8d5d7d35954ff1bfc4c02cdde7a78c5a6e14a2'
+    }
 })
 
 
@@ -54,7 +58,7 @@ export default new Vuex.Store({
             return bitcoinClient.get();
         },
         getRepos() {
-            return githubClient.get('users/levidasilvalima/repos');
+            return githubClient.get('/user/repos');
         }
     }
 });
