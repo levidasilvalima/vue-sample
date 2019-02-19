@@ -12,7 +12,7 @@
             <v-btn icon @click.stop="miniVariant = !miniVariant">
                 <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
             </v-btn>
-        
+
             <v-list>
                 <v-list-tile
                     value="true"
@@ -26,10 +26,10 @@
                     <v-list-tile-content>
                     <v-list-tile-title v-text="item.title"></v-list-tile-title>
                     </v-list-tile-content>
-                
+
                 </v-list-tile>
             </v-list>
-        
+
         </v-navigation-drawer>
 
         <v-toolbar

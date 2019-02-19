@@ -14,14 +14,15 @@ const bitcoinClient = axios.create({
     baseURL: bitcoinApi
 })
 
-const githubApi = 'https://api.github.com';
+const githubApi = 'https://api.github.com/search/repositories?q=javascript+language:javascript&sort=stars&order=desc';
+// 'https://api.github.com';
 
 const githubClient = axios.create({
     baseURL: githubApi,
-    auth: {
-        username: 'levidasilvalima',
-        password: '9c8d5d7d35954ff1bfc4c02cdde7a78c5a6e14a2'
-    }
+    // auth: {
+    //     username: 'levidasilvalima',
+    //     password: '9c8d5d7d35954ff1bfc4c02cdde7a78c5a6e14a2'
+    // }
 })
 
 
@@ -29,7 +30,7 @@ const vuexLocal = new VuexPersistence();
 
 export default new Vuex.Store({
     state: {
-        isAuthenticated: false
+        isAuthenticated: false,
     },
     mutations: {
         setIsAuthenticated(state, payload) {
@@ -58,7 +59,8 @@ export default new Vuex.Store({
             return bitcoinClient.get();
         },
         getRepos() {
-            return githubClient.get('/user/repos');
+          // '/users/levidasilvalima/repos'
+            return githubClient.get();
         }
     }
 });

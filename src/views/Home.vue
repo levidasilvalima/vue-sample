@@ -1,6 +1,7 @@
 <template>
     <home-public v-if="!isAuthenticated"/>
     <home-private v-else/>
+    
 </template>
 
 <script>
